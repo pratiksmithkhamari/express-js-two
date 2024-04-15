@@ -1,15 +1,22 @@
 import  express  from "express";
 
-import { getAllUser, getNewUser, getUserById } from "../handlers/user.js";
+import { getAllUser, getUserById, login, registerUser } from "../handlers/user.js";
 
 const router = express.Router()
 
 //all user 
 router.get("/all",getAllUser)
 
-//new user 
-router.post("/new",getNewUser)
+
+// login 
+router.post("/login",login)
+
+
+
+// register user 
+router.post("/register",registerUser)
+
 
 //user by id
-router.get("/new/:id",getUserById)
+router.route("/new/:id").get(getUserById)
 export default router
